@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<!-- SONAR ISSUE: Missing lang attribute on <html> (accessibility) -->
+<head>
+  <meta charset="UTF-8">
+  <!-- SONAR ISSUE: Missing Content-Security-Policy meta tag -->
+  <!-- SONAR ISSUE: Missing X-Frame-Options -->
+  <title>SonarQube Test App</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <h1>SonarQube Security & Quality Test</h1>
+
+  <!-- SONAR ISSUE: onclick inline event handler (bad practice) -->
+  <button onclick="login()">Login</button>
+
+  <form action="/submit" method="GET">
+    <!-- SONAR ISSUE: Using GET for sensitive form (passwords exposed in URL) -->
+    <!-- SONAR ISSUE: No autocomplete="off" on password field -->
+    <input type="text" id="username" name="username" placeholder="Username">
+    <input type="password" id="password" name="password" placeholder="Password">
+    <input type="submit" value="Submit">
+  </form>
+
+  <!-- SONAR ISSUE: target="_blank" without rel="noopener noreferrer" (tabnapping) -->
+  <a href="https://example.com" target="_blank">Visit Example</a>
+
+  <!-- SONAR ISSUE: Hardcoded internal path exposed in HTML comment -->
+  <!-- Admin panel is at /admin/secret-panel?token=abc123 -->
+
+  <div id="output"></div>
+
+  <script src="app.js"></script>
+  <!-- SONAR ISSUE: Loading script from external CDN without integrity check (SRI) -->
+  <script src="https://cdn.example.com/jquery.js"></script>
+
+</body>
+</html>

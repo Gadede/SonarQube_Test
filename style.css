@@ -1,0 +1,61 @@
+/* SonarQube CSS Quality Test File */
+
+/* SONAR ISSUE: Duplicate CSS rule */
+body {
+  font-size: 14px;
+  background-color: #ffffff;
+}
+
+body {
+  /* SONAR ISSUE: Duplicate selector */
+  font-size: 16px;
+}
+
+/* SONAR ISSUE: Empty rule */
+h1 {
+}
+
+/* SONAR ISSUE: !important overuse */
+.button {
+  color: red !important;
+  background: blue !important;
+  padding: 10px !important;
+  border: none !important;
+}
+
+/* SONAR ISSUE: Vendor prefix without standard property */
+.box {
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  /* Missing standard: border-radius: 5px; */
+}
+
+/* SONAR ISSUE: Hardcoded color that should be a variable */
+.header {
+  color: #3a7bd5;
+  background-color: #3a7bd5; /* same color used inconsistently */
+}
+
+/* SONAR ISSUE: Universal selector with no constraints (performance) */
+* {
+  box-sizing: border-box;
+  transition: all 0.3s ease; /* 'all' in transition is a performance issue */
+}
+
+/* SONAR ISSUE: Overly specific selector (hard to maintain) */
+body > div > ul > li > a > span {
+  font-weight: bold;
+}
+
+/* SONAR ISSUE: Zero value with unit (should be 0 not 0px) */
+.container {
+  margin: 0px;
+  padding: 0px;
+  top: 0px;
+}
+
+/* SONAR ISSUE: Unreachable / unused CSS rule */
+.this-class-is-never-used-anywhere {
+  display: flex;
+  align-items: center;
+}
